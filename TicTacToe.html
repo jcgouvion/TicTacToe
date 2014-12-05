@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
+<style>
+	.grid {
+		display: table;
+		width: 300px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.grid > div {
+        display:table-row;
+        width:100%;
+    }
+    .grid > div:first-child,
+    .grid > div:last-child {
+        height: 100px;
+    }
+    .grid > div > div {
+        display:table-cell;
+    }
+    .grid > div > div:first-child,
+    .grid > div > div:last-child {
+        width:100px;
+    }
+
+    div {
+        outline: 1px solid blue;
+    }
+		
+
+</style>
+
+</head>
+
+<body>
+	<div class="grid">
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+<script>
+var counter = 0;
+	function init(){
+		$("div.grid > div > div").click(clickedCell);
+	}
+	
+	function clickedCell(){
+		if(counter % 2 === 0) {
+			$(this).html('x');
+		}
+		else {
+			$(this).html("o");
+		}
+		counter++;
+	}
+	
+	$(document).ready(init);
+</script>
+</body>
+</html>
